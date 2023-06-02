@@ -5,7 +5,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavItem } from './types';
 import Image from 'next/image';
-import CategoryRender from '../products/CategoryRender';
+import CategoryRender from '../store/Renderers/CategoryRender';
+import { useRouter } from 'next/navigation';
 
 let navRender = [
   { name: 'Home', href: '/', current: true },
@@ -34,10 +35,12 @@ const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [navigation, setNavigation] = useState(navRender);
 
+  const router = useRouter();
+
   useEffect(() => {
     const init = async () => {
       const categoryRenderer = new CategoryRender();
-      const categories = await categoryRenderer.renderAsObjects();
+      const categories = await categoryRenderer.renderAsObjects('products/categories');
 
       const categoryLinks = navRender.concat(categories);
       setNavigation(categoryLinks);
@@ -89,7 +92,11 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    onClick={() => setNavigation(updateNavBar(item.name, navigation))}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setNavigation(updateNavBar(item.name, navigation));
+                      router.push(`${item.href}`);
+                    }}
                     className={classNames(
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'rounded-md px-3 py-2 text-sm font-medium'

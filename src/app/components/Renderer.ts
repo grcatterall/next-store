@@ -1,6 +1,6 @@
 interface Renderer {
-    fetchData(): Promise<any[]>
-    renderAsObjects(): Promise<any[]>
+    fetchData(path: string): Promise<any[]>
+    renderAsObjects(path: string): Promise<any[]>
 }
 
 export default Renderer;
