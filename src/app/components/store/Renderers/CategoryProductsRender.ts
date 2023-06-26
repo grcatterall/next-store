@@ -21,7 +21,7 @@ class CategoryProductsRender implements Renderer {
         const catObject = categories.map((category: string) => {
             const url = category.replace(/[^\w ]/g, '').replace(/'/g, '').replace(/ /g, '-').toLowerCase();
             return {
-                name: category.charAt(0).toUpperCase() + category.slice(1), 
+                name: category.replace(/%20/g, " "), 
                 href: `/category/${url}`, 
                 current: false
             }
