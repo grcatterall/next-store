@@ -33,7 +33,7 @@ const Category = () => {
                                 <img src={product.image} alt={product.title} className="w-full h-80 object-contain" />
                             </div>
                             <div className="p-2 lg:p-3 lg:mx-4 md:mx-2 xl:p-4">
-                                <div className="mt-4 font-bold text-2xl tracking-wide">
+                                <div className="mt-4 font-light text-m tracking-wide">
                                     {product.title}
                                 </div>
                             </div>
