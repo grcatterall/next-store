@@ -1,15 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import CategoryProductsRender from '@/app/components/store/Renderers/CategoryProductsRender';
 import { Product } from '@/app/components/store/types';
 
 const Category = () => {
     const [products, setProducts] = useState([]);
-    const router = useRouter();
     const currentCategory = usePathname().split('category/')[1];    
-    const categoryName = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+    const categoryName = currentCategory.replace(/%20/g, " ");
 
     useEffect(() => {
         const init = async () => {
@@ -24,7 +23,7 @@ const Category = () => {
 
     return (
         <div className="mx-auto w-4/5">
-            <h1 className="text-xl font-bold">{categoryName}</h1>
+            <h1 className="text-xl font-bold capitalize">{categoryName}</h1>
             <div className='mt-3 gird-cols-1 xl:grid-cols-4 grid xl:gap-2 mb-6'>
                 {products.map((product: Product) => {
                     return (
