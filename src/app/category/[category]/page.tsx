@@ -53,3 +53,28 @@ const Category = () => {
 }
 
 export default Category;
+
+export async function getStaticPaths() {
+    const paths = getAllPostIds();
+    return {
+        paths,
+        fallback: false,
+    };
+}
+
+function getAllPostIds() {
+
+    const ids = [
+        {
+            params: {
+                id: 'jewelery'
+            }
+        },
+        {
+            params: {
+                id: 'electronics'
+            }
+        }
+    ]
+    return ids;
+}
