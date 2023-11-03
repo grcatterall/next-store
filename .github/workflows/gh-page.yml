@@ -26,4 +26,4 @@ jobs:
           # configure the build here
 
       - name: Deploy
-        run: npm run build && npm start
+        run: npm run build && npx serve@latest out
