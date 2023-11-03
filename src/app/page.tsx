@@ -1,57 +1,29 @@
 import ProductBannerList from "./components/store/ProductBannerList";
 import Footer from "./components/ui/blocks/footer";
+import Carousel from "./components/ui/blocks/carousel/carousel";
 
 const Home = () => {
   return (
     <>
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div id="hero" className="pt-5 lg:flex items-center">
-          <div className="px-5 sm:px-10 md:px-10 md:flex lg:block lg:w-1/2 lg:max-w-3xl lg:mr-8 lg:px-20">
-            <div className="md:w-1/2 md:mr-10 lg:w-full lg:mr-0">
-              <h1 className="text-3xl xl:text-4xl font-black md:leading-none xl:leading-tight">
-                Hire a Designer Near You
-              </h1>
-              <p className="mt-4 xl:mt-2">
-                World Class Designers, just for you on contract, full-time or part-time, whatever you need.
-              </p>
-            </div>
+      <main className="min-h-screen">
+        <Carousel />
 
-            <div className="flex-1">
-              <div className="relative mt-4 md:mt-0 lg:mt-4">
-                <div className="pl-4 pr-4 h-full absolute bottom-0 left-0 flex items-center">
-                  <svg className="text-gray-700 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                </div>
-                <input type="text" className="w-full border bg-gray-100 px-4 py-4 text-sm tracking-wide focus:outline-none focus:shadow-outline rounded pl-12" placeholder="Type (e.g junior, senior)" />
-              </div>
-              <div className="relative mt-4">
-                <div className="pl-4 pr-4 h-full absolute bottom-0 left-0 flex items-center">
-                  <svg className="text-gray-700 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" /></svg>
-                </div>
-                <input type="text" className="w-full border bg-gray-100 px-4 py-4 text-sm tracking-wide focus:outline-none focus:shadow-outline rounded pl-12" placeholder="Mountain View, California" />
-              </div>
-              <div>
-                <button className="transition-all duration-300 mt-5 w-full border border-transparent rounded font-semibold tracking-wide text-sm px-5 py-4 focus:outline-none focus:shadow-outline bg-indigo-500 text-gray-100 hover:bg-indigo-600 hover:text-gray-200">Find Designers</button>
-              </div>
-            </div>
-          </div>
-          <div className="mt-6 w-full flex-1 lg:mt-0">
-            <div></div>
-            <img className="" src="https://images.unsplash.com/photo-1524749292158-7540c2494485?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=85" />
-          </div>
-        </div>
-
+        <div className="flex h-full flex-col items-center justify-between p-24 pt-2">
         <div className="p-5 sm:px-10 md:px-20" id="companies">
           <div className="max-w-screen-xl mx-auto">
             <img className="mx-auto" src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846471026680582071-Strip-Payment-Logos.png" />
           </div>
         </div>
 
-       <ProductBannerList />
+
+        <div className="px-5 sm:px-10 md:px-20 lg:px-8 xl:px-10 py-8 bg-indigo-100" id="features">
+          <div className="max-w-screen-xl mx-auto">
+            <h3 className="leading-none font-black text-3xl">
+              Featured
+            </h3>
+            <ProductBannerList count="6" category={false} />
+          </div>
+        </div>
 
         <div className="px-5 sm:px-10 md:px-20 lg:px-10 xl:px-20 py-8 bg-gray-100" id="cards">
           <div className="max-w-screen-xl mx-auto">
@@ -65,7 +37,7 @@ const Home = () => {
                     <div>
                       <div className="flex justify-between mt-6 text-xs font-bold">
                         <div className="flex items-start">
-                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round">
+                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                           </svg>
@@ -73,9 +45,9 @@ const Home = () => {
                         </div>
 
                         <div className="flex items-start ml-4">
-                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect xmlns="http://www.w3.org/2000/svg" x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                            <path xmlns="http://www.w3.org/2000/svg" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect xmlns="http://www.w3.org/2000/svg" x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path xmlns="http://www.w3.org/2000/svg" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                           </svg>
                           <span className="ml-1 text-gray-500">Google (3 Years)</span>
                         </div>
@@ -106,7 +78,7 @@ const Home = () => {
                     <div>
                       <div className="flex justify-between mt-6 text-xs font-bold">
                         <div className="flex items-start">
-                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round">
+                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                           </svg>
@@ -114,9 +86,9 @@ const Home = () => {
                         </div>
 
                         <div className="flex items-start ml-4">
-                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect xmlns="http://www.w3.org/2000/svg" x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                            <path xmlns="http://www.w3.org/2000/svg" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect xmlns="http://www.w3.org/2000/svg" x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path xmlns="http://www.w3.org/2000/svg" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                           </svg>
                           <span className="ml-1 text-gray-500">Amazon (8 Years)</span>
                         </div>
@@ -147,7 +119,7 @@ const Home = () => {
                     <div>
                       <div className="flex justify-between mt-6 text-xs font-bold">
                         <div className="flex items-start">
-                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round">
+                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                           </svg>
@@ -155,9 +127,9 @@ const Home = () => {
                         </div>
 
                         <div className="flex items-start ml-4">
-                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect xmlns="http://www.w3.org/2000/svg" x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                            <path xmlns="http://www.w3.org/2000/svg" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                          <svg className="text-gray-400 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect xmlns="http://www.w3.org/2000/svg" x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path xmlns="http://www.w3.org/2000/svg" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                           </svg>
                           <span className="ml-1 text-gray-500">AirBnB (1 Years)</span>
                         </div>
@@ -249,9 +221,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-      </div>
-    </main>
-    <Footer />
+        </div>
+        </div>
+      </main>
+      <Footer />
     </>
   )
 }
