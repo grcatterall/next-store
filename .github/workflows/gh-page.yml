@@ -26,6 +26,4 @@ jobs:
           # configure the build here
 
       - name: Deploy
-        run: |
-          npm i -g next
-          next export && npm run build && npm start
+        run: npm run build && npm start
