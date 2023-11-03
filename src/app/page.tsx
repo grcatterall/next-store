@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <>
       <main className="min-h-screen">
-        <Carousel />
 
         <div className="flex h-full flex-col items-center justify-between p-24 pt-2">
         <div className="p-5 sm:px-10 md:px-20" id="companies">
