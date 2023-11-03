@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
 import ProductRenderer from "@/app/components/store/Renderers/ProductRenderer";
-import ProductSkeleton from "@/app/components/ui/blocks/product-skeleton";
-import ProductPage from "@/app/components/ui/blocks/product-page";
+import ProductSkeleton from "@/app/components/ui/blocks/product/product-skeleton";
+import ProductPage from "@/app/components/ui/blocks/product/product-page";
 import { Product as ProductType } from "@/app/components/store/types";
 
 const Product = () => {

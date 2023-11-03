@@ -18,7 +18,6 @@ const ProductBannerList = ({ count, category = false }: { count: string, categor
 
             if (data.length) {
                 setProducts(data);
-                console.log(data);
             }
         };
         init();

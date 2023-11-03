@@ -2,11 +2,13 @@
 
 import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, ShoppingCartIcon } from '@heroicons/react/24/outline'
 import { NavItem } from './types';
 import Image from 'next/image';
 import CategoryRender from '../store/Renderers/CategoryRender';
 import { useRouter } from 'next/navigation';
+import ItemCount from './blocks/header/navbar/mini-basket/item-count';
+import MiniBasket from './blocks/header/navbar/mini-basket/mini-basket';
 
 let navRender = [
   { name: 'Home', href: '/', current: true },
@@ -34,6 +36,8 @@ function updateNavBar(itemName: string, navigation: NavItem[]): NavItem[] {
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [navigation, setNavigation] = useState(navRender);
+  const [miniCartOpen, setMiniCartOpen] = useState(false);
+  const [basketItemCount, setBasketItemCount] = useState(0);
 
   const router = useRouter();
 
@@ -44,6 +48,12 @@ const Navbar = () => {
 
       const categoryLinks = navRender.concat(categories);
       setNavigation(categoryLinks);
+
+      const currentBasket = await JSON.parse(localStorage.getItem('basket') ?? '{}');
+
+      if (currentBasket.itemCount) {
+        setBasketItemCount(currentBasket.itemCount);
+      }
     }
 
     init();
@@ -112,10 +122,16 @@ const Navbar = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
               type="button"
-              className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white  focus:ring-offset-gray-800"
             >
-              <span className="sr-only">View notifications</span>
-              <BellIcon className="h-6 w-6" aria-hidden="true" />
+              <div className="relative">
+                <span className="sr-only">View basket</span>
+                <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" onClick={() => setMiniCartOpen(!miniCartOpen)}/>
+                <ItemCount itemCount={basketItemCount} />
+                <div className="relative z-10 hover:text-black">
+                  {miniCartOpen ? <MiniBasket /> : ''}
+                </div>
+              </div>
             </button>
 
             {/* Profile dropdown */}
