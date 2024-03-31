@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
     reactStrictMode: true,
     images: {
+      unoptimized: true,
       domains: [
         'tailwindui.com',
         'images.unsplash.com',
